@@ -12,6 +12,7 @@ import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import StoriesViewer from "@/components/StoriesViewer";
+import { CardItem } from "@/components/CardItem"; // Import the CardItem
 
 // Sample stories data
 const STORIES_DATA = [
@@ -32,6 +33,25 @@ const STORIES_DATA = [
   },
 ];
 
+// Sample card data
+const CARD_DATA = [
+  {
+    title: "Card Title 1",
+    description: "This is a description for Card 1.",
+    imageUrl: "https://picsum.photos/id/4/800/600",
+  },
+  {
+    title: "Card Title 2",
+    description: "This is a description for Card 2.",
+    imageUrl: "https://picsum.photos/id/5/800/600",
+  },
+  {
+    title: "Card Title 3",
+    description: "This is a description for Card 3.",
+    imageUrl: "https://picsum.photos/id/6/800/600",
+  },
+];
+
 export default function HomeScreen() {
   const [isStoriesOpen, setIsStoriesOpen] = useState(false);
 
@@ -41,7 +61,7 @@ export default function HomeScreen() {
         headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
         headerImage={
           <Image
-            source={require("@/assets/images/partial-react-logo.png")}
+            source={require("@/assets/images/workdesk-coffee.gif")}
             style={styles.reactLogo}
           />
         }
@@ -76,39 +96,18 @@ export default function HomeScreen() {
           <HelloWave />
         </ThemedView>
 
-        <ThemedView style={styles.stepContainer}>
-          <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-          <ThemedText>
-            Edit{" "}
-            <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{" "}
-            to see changes. Press{" "}
-            <ThemedText type="defaultSemiBold">
-              {Platform.select({ ios: "cmd + d", android: "cmd + m" })}
-            </ThemedText>{" "}
-            to open developer tools.
-          </ThemedText>
-        </ThemedView>
-
-        <ThemedView style={styles.stepContainer}>
-          <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          <ThemedText>
-            Tap the Explore tab to learn more about what's included in this
-            starter app.
-          </ThemedText>
-        </ThemedView>
-
-        <ThemedView style={styles.stepContainer}>
-          <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-          <ThemedText>
-            When you're ready, run{" "}
-            <ThemedText type="defaultSemiBold">
-              npm run reset-project
-            </ThemedText>{" "}
-            to get a fresh <ThemedText type="defaultSemiBold">app</ThemedText>{" "}
-            directory. This will move the current{" "}
-            <ThemedText type="defaultSemiBold">app</ThemedText> to{" "}
-            <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-          </ThemedText>
+        {/* Card Items Section */}
+        <ThemedView>
+          {CARD_DATA.map((card, index) => (
+            <CardItem
+              key={index}
+              title={card.title}
+              description={card.description}
+              imageUrl={card.imageUrl}
+              onPress={() => console.log(`${card.title} pressed`)}
+              style={styles.cardItem}
+            />
+          ))}
         </ThemedView>
       </ParallaxScrollView>
 
@@ -128,14 +127,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 8,
+    borderRadius: 50,
   },
   stepContainer: {
     gap: 8,
     marginBottom: 8,
+    borderRadius: 10,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
+    height: 300,
+    width: 490,
     bottom: 0,
     left: 0,
     position: "absolute",
@@ -155,10 +156,13 @@ const styles = StyleSheet.create({
     height: 170,
     borderRadius: 5,
     borderWidth: 3,
-    borderColor: "#ff8501",
+    borderColor: "#000",
   },
   storyUsername: {
     marginTop: 5,
     fontSize: 12,
+  },
+  cardItem: {
+    marginBottom: 16,
   },
 });
