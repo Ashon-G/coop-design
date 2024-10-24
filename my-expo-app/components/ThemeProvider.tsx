@@ -11,7 +11,7 @@ const lightTheme = {
 
 const darkTheme = {
   primary: "#2E5A88",
-  background: "#1A1A1A",
+  background: "#fff",
   text: "#F5F5F5",
   cardBackground: "#2A2A2A",
 };

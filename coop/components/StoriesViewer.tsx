@@ -167,7 +167,7 @@ const StoriesViewer: React.FC<StoriesViewerProps> = ({ stories, onClose }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: "#fff",
   },
   story: {
     flex: 1,

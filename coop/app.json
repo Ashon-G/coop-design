@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "blog",
-    "slug": "blog",
+    "name": "coop",
+    "slug": "coop",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -13,7 +13,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vashong.coop"
     },
     "android": {
       "adaptiveIcon": {
@@ -34,9 +35,8 @@
     },
     "extra": {
       "eas": {
-        "projectId": "484c5505-3d64-4a87-8376-2eb6ad356c8a"
+        "projectId": "b82ce225-f2c3-4d12-826c-3652d0013cd1"
       }
-    },
-    "owner": "paygeon"
+    }
   }
 }
